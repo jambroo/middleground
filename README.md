@@ -12,7 +12,7 @@ Example of input for JSON mode is
 
 Output:
 
-```json
+```plaintext
 example
-  title example glossary
+    title    example glossary
 ```
