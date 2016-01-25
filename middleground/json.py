@@ -16,7 +16,6 @@ class Json:
             return out
 
         if isinstance(deserialized_json, list):
-            #for item in deserialized_json:
             for key in range(0, len(deserialized_json)):
                 item = deserialized_json[key]
                 for i in range(0, depth):
