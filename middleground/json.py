@@ -4,21 +4,32 @@ class Json:
     def __init__(self, data):
         self.data = json.loads(data)
 
-    def to_str(self, deserialized_json):
+    def to_str(self, deserialized_json, depth=0):
         out = ""
+
         if isinstance(deserialized_json, dict):
             for key in sorted(deserialized_json):
-                print(key)
-                out += self.to_str(deserialized_json[key]) + " "
+                for i in range(0, depth):
+                    out += "  "
+                out += key + "\n"
+                out += self.to_str(deserialized_json[key], depth+1) + "\n"
             return out
 
         if isinstance(deserialized_json, list):
-            for item in deserialized_json:
-                out += self.to_str(item) + " "
+            #for item in deserialized_json:
+            for key in range(0, len(deserialized_json)):
+                item = deserialized_json[key]
+                for i in range(0, depth):
+                    out += "  "
+                out += str(key) + "\n"
+                out += self.to_str(item, depth+1) + "\n"
             return out
 
         if isinstance(deserialized_json, str):
-            return deserialized_json
+            for i in range(0, depth):
+                out += "  "
+            out += deserialized_json
+            return out
         else:
             return ""
 
