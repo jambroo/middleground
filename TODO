@@ -13,3 +13,5 @@ msg
 epub
 image
 ps
+
+Use pypdfocr to read scanned PDFs
