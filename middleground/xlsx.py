@@ -3,9 +3,10 @@ import xlrd
 import tempfile
 import os
 
-class Xlsx:
+class Xls:
+    # This class handles both xls and can be extended to handle xlsx
     def __init__(self, data):
-        outTemp = tempfile.mkstemp(suffix=".xlsx")
+        outTemp = tempfile.mkstemp(suffix=self.get_extension())
         outfile = outTemp[1]
         outfp = open(outfile, 'wb')
         outfp.write(data)
@@ -39,5 +40,13 @@ class Xlsx:
 
         os.unlink(outfile)
 
+    def get_extension(self):
+        return "xls"
+
     def __str__(self):
         return self.data
+
+
+class Xlsx(Xls):
+    def get_extension(self):
+        return "xlsx"
