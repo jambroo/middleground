@@ -3,9 +3,9 @@ import docx
 import tempfile
 import os
 
-class Doc:
+class Docx:
     def __init__(self, data):
-        outTemp = tempfile.mkstemp(suffix=self.get_extension())
+        outTemp = tempfile.mkstemp()
         outfile = outTemp[1]
         outfp = open(outfile, 'wb')
         outfp.write(data)
@@ -19,13 +19,5 @@ class Doc:
 
         os.unlink(outfile)
 
-    def get_extension(self):
-        return "doc"
-
     def __str__(self):
         return self.data
-
-
-class Docx(Doc):
-    def get_extension(self):
-        return "docx"
