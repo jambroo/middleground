@@ -8,16 +8,6 @@ from pdfminer.converter import XMLConverter, HTMLConverter, TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.utils import set_debug_logging
 
-#
-#     for fname in args:
-#         fp = io.open(fname, 'rb')
-#         process_pdf(rsrcmgr, device, fp, pagenos, maxpages=maxpages, password=password,
-#                     caching=caching, check_extractable=True)
-#         fp.close()
-#     device.close()
-#     if close_outfp:
-#         outfp.close()
-
 class Pdf:
     def __init__(self, data):
         # Could use SpooledTemporaryFile here to save the temp file into memory
