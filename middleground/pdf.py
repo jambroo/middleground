@@ -19,10 +19,17 @@ class Pdf:
         rsrcmgr = PDFResourceManager()
         device = TextConverter(rsrcmgr, outfp, laparams=LAParams())
 
-        # Load test PDF
-        testPdf = open("tests/test.pdf", "rb")
-        process_pdf(rsrcmgr, device, testPdf, set())
-        testPdf.close()
+        pdfTemp = tempfile.mkstemp()
+        pdfFile = pdfTemp[1]
+        pdfFp = open(pdfFile, 'wb')
+        pdfFp.write(data)
+        pdfFp.close()
+
+        pdfFp = open(pdfFile, 'rb')
+        process_pdf(rsrcmgr, device, pdfFp, set())
+        pdfFp.close()
+
+        os.unlink(pdfFile)
 
         outfp.close()
         outfp = open(outfile, 'rt')
