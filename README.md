@@ -16,3 +16,12 @@ Output:
 example
     title    example glossary
 ```
+
+## System requirements
+To get the docx python package to work you need to install some xml-related libs in linux.
+
+This can be done by running
+
+```plaintext
+sudo apt-get install libxml2-dev libxslt1-dev
+```
