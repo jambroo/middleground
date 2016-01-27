@@ -2,6 +2,14 @@ import unittest
 from middleground.docx import Docx, Doc
 
 class TestDocx(unittest.TestCase):
+    def test_xlsx_simple(self):
+        testF = open("tests/files/test.docx", "rb")
+        docx = Docx(testF.read())
+        testF.close()
+
+        docxStr = str(docx)
+        self.assertEqual(docxStr, "Hello world")
+
     def test_xlsx(self):
         testF = open("tests/files/test2.docx", "rb")
         docx = Docx(testF.read())
