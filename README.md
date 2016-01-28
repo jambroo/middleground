@@ -18,10 +18,6 @@ example
 ```
 
 ## System requirements
-To get the docx python package to work you need to install some xml-related libs in linux.
+A fully functioning [Apache Tika](https://tika.apache.org/) server is required for this to work. The server configuration can be set in config.py (see config.py sample for an example).
 
-This can be done by running
-
-```plaintext
-sudo apt-get install libxml2-dev libxslt1-dev
-```
+You can use a pre-configured Apache Tika server Docker image: [https://hub.docker.com/r/logicalspark/docker-tikaserver/](https://hub.docker.com/r/logicalspark/docker-tikaserver/).
