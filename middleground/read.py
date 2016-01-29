@@ -12,7 +12,7 @@ class Read:
         elif content is not None:
             parsed = parser.from_buffer(content, config.TIKA_SERVER)
         else:
-            raise Exception('spam', 'eggs')
+            raise Exception("A path to the file or the content of the file must be provided.")
 
         self.data = ""
         if parsed["content"]:
