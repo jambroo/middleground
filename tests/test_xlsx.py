@@ -1,38 +1,27 @@
 import unittest
-from middleground.xlsx import Xlsx, Xls
+from middleground.read import Read
 
 class TestXls(unittest.TestCase):
     def test_xlsx_simple(self):
         testF = open("tests/files/test.xlsx", "rb")
-        xlsx = Xlsx(testF.read())
+        xlsx = Read(content=testF.read())
         testF.close()
 
         xlsxStr = str(xlsx)
-        self.assertEqual(xlsxStr, "hello\tworld")
+        self.assertEqual(xlsxStr[0:19], "Sheet1\n\thello\tworld")
 
     def test_xlsx(self):
-        testF = open("tests/files/test2.xlsx", "rb")
-        xlsx = Xlsx(testF.read())
-        testF.close()
-
+        xlsx = Read(path="tests/files/test2.xlsx")
         xlsxStr = str(xlsx)
-        self.assertEqual(xlsxStr[0:34], "Category\tFunction\tDescription\tNew?")
+        self.assertEqual(xlsxStr[0:68], "worksheet functions.xlsx\n\nSheet1\n\tCategory\tFunction\tDescription\tNew?")
 
     def test_xls_simple(self):
-        testF = open("tests/files/test.xls", "rb")
-        xls = Xls(testF.read())
-        testF.close()
-
-        xlsStr = str(xls)
-        self.assertEqual(xlsStr, "hello\tworld")
+        self.assertEqual(str(Read(path="tests/files/test.xls"))[0:19], 'Sheet1\n\thello\tworld')
 
     def test_xls(self):
-        testF = open("tests/files/test2.xls", "rb")
-        xls = Xls(testF.read())
-        testF.close()
-
+        xls = Read(path="tests/files/test2.xls")
         xlsStr = str(xls)
-        self.assertEqual(xlsStr[0:34], "ID\tPoint\tStrain\tsex\tsex#\tage\tbodyw")
+        self.assertEqual(xlsStr[0:42], "Sheet1\n\tID\tPoint\tStrain\tsex\tsex#\tage\tbodyw")
 
 if __name__ == '__main__':
     unittest.main()
