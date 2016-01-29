@@ -1,7 +1,5 @@
 TODO:
 Handle:
-msg
 image
-ps
 
 Use pypdfocr to read scanned PDFs
