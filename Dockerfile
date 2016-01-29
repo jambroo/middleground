@@ -22,7 +22,6 @@ RUN     apt-get update \
         && cd /tmp/ && curl -O https://raw.githubusercontent.com/chrismattmann/geotopicparser-utils/master/mime/org/apache/tika/mime/custom-mimetypes.xml \
         && mv custom-mimetypes.xml /root/org/apache/tika/mime
 
-RUN java -jar /tika-server-${TIKA_VERSION}.jar --help
-
 EXPOSE 9998
-ENTRYPOINT java -classpath ~/src/geotopic-mime:. -jar /tika-server-${TIKA_VERSION}.jar -h 0.0.0.0
+#ENTRYPOINT java -classpath ~/src/geotopic-mime:. -jar /tika-server-${TIKA_VERSION}.jar -h 0.0.0.0
+ENTRYPOINT java -jar /tika-server-${TIKA_VERSION}.jar -h 0.0.0.0
