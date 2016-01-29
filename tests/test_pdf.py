@@ -1,5 +1,4 @@
 import unittest
-from middleground.pdf import Pdf
 from middleground.read import Read
 
 class TestPdf(unittest.TestCase):
@@ -11,11 +10,8 @@ class TestPdf(unittest.TestCase):
         self.assertEqual(str(pdf), "hello world")
 
     def test_long_pdf(self):
-        pdf = None
-        with open("tests/files/test2.pdf", 'rb') as pdfF:
-            pdfRaw = pdfF.read()
-            pdf = Pdf(pdfRaw)
-        self.assertEqual(str(pdf)[0:14], "Paper 173-2008")
+        pdf = Read(path="tests/files/test2.pdf")
+        self.assertEqual(str(pdf)[0:18], "1 \n\nPaper 173-2008")
 
 if __name__ == '__main__':
     unittest.main()
