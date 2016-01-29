@@ -1,8 +1,3 @@
-# https://tika.apache.org/1.11/configuring.html
-# Check out bottom
-
-
-
 FROM ubuntu:latest
 MAINTAINER david@logicalspark.com
 
@@ -30,6 +25,4 @@ RUN     apt-get update \
 RUN java -jar /tika-server-${TIKA_VERSION}.jar --help
 
 EXPOSE 9998
-#ENTRYPOINT java -classpath ~/src/geotopic-mime:. -jar /tika-server-${TIKA_VERSION}.jar -h 0.0.0.0
-ENTRYPOINT ls
-#java -classpath /root/src/geotopic-mime:/tika-server-${TIKA_VERSION}.jar org.apache.tika.server.TikaServerCli  -h 0.0.0.0
+ENTRYPOINT java -classpath ~/src/geotopic-mime:. -jar /tika-server-${TIKA_VERSION}.jar -h 0.0.0.0
