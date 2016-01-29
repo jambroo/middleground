@@ -21,7 +21,15 @@ RUN     apt-get update \
         && echo "Nearest mirror: $NEAREST_TIKA_SERVER_URL" \
         && curl -sSL "$NEAREST_TIKA_SERVER_URL" -o /tika-server-${TIKA_VERSION}.jar \
         && gpg --verify /tmp/tika-server-${TIKA_VERSION}.jar.asc /tika-server-${TIKA_VERSION}.jar \
-        && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+        && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+        && mkdir -p /root/src/geotopic-mime && cd /root/src/geotopic-mime \
+        && mkdir -p /root/org/apache/tika/mime \
+        && cd /tmp/ && curl -O https://raw.githubusercontent.com/chrismattmann/geotopicparser-utils/master/mime/org/apache/tika/mime/custom-mimetypes.xml \
+        && mv custom-mimetypes.xml /root/org/apache/tika/mime
+
+RUN java -jar /tika-server-${TIKA_VERSION}.jar --help
 
 EXPOSE 9998
-ENTRYPOINT java -jar /tika-server-${TIKA_VERSION}.jar -c ???? -h 0.0.0.0
+#ENTRYPOINT java -classpath ~/src/geotopic-mime:. -jar /tika-server-${TIKA_VERSION}.jar -h 0.0.0.0
+ENTRYPOINT ls
+#java -classpath /root/src/geotopic-mime:/tika-server-${TIKA_VERSION}.jar org.apache.tika.server.TikaServerCli  -h 0.0.0.0
