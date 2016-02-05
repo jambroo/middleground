@@ -1,5 +1,2 @@
 TODO:
-Handle:
-image
-
-Use pypdfocr to read scanned PDFs
+Handle custom types - use JSON as an example
