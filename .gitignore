@@ -63,3 +63,5 @@ venv
 config.py
 
 *.class
+
+.idea
