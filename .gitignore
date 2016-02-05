@@ -15,8 +15,6 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
 parts/
 sdist/
 var/
@@ -62,3 +60,8 @@ target/
 .ipynb_checkpoints
 
 venv
+config.py
+
+*.class
+
+.idea

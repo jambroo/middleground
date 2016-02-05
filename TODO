@@ -1,15 +1,2 @@
 TODO:
-Handle:
-pdf
-xlsx
-docx
-pptx
-rtf
-doc
-xls
-ppt
-eml
-msg
-epub
-image
-ps
+Handle custom types - use JSON as an example

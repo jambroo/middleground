@@ -16,3 +16,8 @@ Output:
 example
     title    example glossary
 ```
+
+## System requirements
+A fully functioning [Apache Tika](https://tika.apache.org/) server is required for this to work. The server configuration can be set in config.py (see config.py sample for an example).
+
+You can use a pre-configured Apache Tika server Docker image: [https://hub.docker.com/r/logicalspark/docker-tikaserver/](https://hub.docker.com/r/logicalspark/docker-tikaserver/).
