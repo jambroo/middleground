@@ -8,9 +8,9 @@ from tika import parser
 class Read:
     def __init__(self, path=None, content=None):
         if path is not None:
-            parsed = parser.from_file(path, config.TIKA_SERVER)
+            parsed = parser.from_file(path, config.MIDDLEGROUND.TIKA_SERVER)
         elif content is not None:
-            parsed = parser.from_buffer(content, config.TIKA_SERVER)
+            parsed = parser.from_buffer(content, config.MIDDLEGROUND.TIKA_SERVER)
         else:
             raise Exception("A path to the file or the content of the file must be provided.")
 
