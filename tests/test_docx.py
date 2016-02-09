@@ -32,6 +32,15 @@ class TestDocx(unittest.TestCase):
         testF.close()
         self.assertEqual(str(read)[0:36], 'Sample document created with MS Word')
 
+    def test_docx2(self):
+        testF = open("tests/files/test3.docx", "rb")
+        read = Read(content=testF.read())
+        testF.close()
+        fileContent = str(read)
+        contentsSplit = fileContent.split("\n")
+        self.assertTrue("Opgaveark:" in contentsSplit[0])
+        self.assertEqual(contentsSplit[len(contentsSplit)-1], 'Teknik og Miljø')
+
 
 if __name__ == '__main__':
     unittest.main()

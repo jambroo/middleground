@@ -23,5 +23,6 @@ class TestXls(unittest.TestCase):
         xlsStr = str(xls)
         self.assertEqual(xlsStr[0:42], "Sheet1\n\tID\tPoint\tStrain\tsex\tsex#\tage\tbodyw")
 
+
 if __name__ == '__main__':
     unittest.main()
