@@ -1,6 +1,6 @@
 import unittest
 from middleground.read import Read
-import config
+from test_config import TIKA_SERVER
 
 class TestPs(unittest.TestCase):
     def test_ps(self):
