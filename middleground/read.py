@@ -1,6 +1,11 @@
 from tika import parser
 
 class Read:
+    CONVERTED=0
+    ALREADY_EXISTS=1
+    TYPE_ERROR=2
+    UNKNOWN_ERROR=3
+
     def __init__(self, path=None, content=None, tikaServer=None):
         if path is not None:
             parsed = parser.from_file(path, tikaServer)
