@@ -1,16 +1,16 @@
-import tempfile
-import os
-import config
-
-import tika
 from tika import parser
 
 class Read:
-    def __init__(self, path=None, content=None):
+    CONVERTED=0
+    ALREADY_EXISTS=1
+    TYPE_ERROR=2
+    UNKNOWN_ERROR=3
+
+    def __init__(self, path=None, content=None, tikaServer=None):
         if path is not None:
-            parsed = parser.from_file(path, config.MIDDLEGROUND.TIKA_SERVER)
+            parsed = parser.from_file(path, tikaServer)
         elif content is not None:
-            parsed = parser.from_buffer(content, config.MIDDLEGROUND.TIKA_SERVER)
+            parsed = parser.from_buffer(content, tikaServer)
         else:
             raise Exception("A path to the file or the content of the file must be provided.")
 

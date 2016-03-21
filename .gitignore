@@ -60,7 +60,7 @@ target/
 .ipynb_checkpoints
 
 venv
-config.py
+test_config.py
 
 *.class
 

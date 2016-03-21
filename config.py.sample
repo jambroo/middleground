@@ -1,2 +1,0 @@
-class MIDDLEGROUND:
-  TIKA_SERVER = 'http://localhost:9998/tika'

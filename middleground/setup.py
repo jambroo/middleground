@@ -1,11 +1,11 @@
 from distutils.core import setup
-from distutils.extension import Extension
+from setuptools import setup, find_packages
 
 setup(name='middleground',
       version='0.1',
       description='middleground is a Python module for converting various '+
         'document types to a normalised plaintext using am Apache Tika server.',
-      packages=['middleground'],
+      packages=find_packages(),
       install_requires=[
         'docx',
         'ezodf',

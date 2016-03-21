@@ -1,6 +1,5 @@
 import unittest
 from middleground.read import Read
-import config
 
 class TestRead(unittest.TestCase):
     def test_read(self):
